@@ -1,0 +1,40 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Обработчик угроз безопасности" FontStyle="Normal" FontSize="12" Height="600" Width="900" ResizeMode="NoResize" Closing="Window_Closing">
+    <Grid>
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FFD6FBFF" Offset="1"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Button Name ="RefreshButton" Content="Обновить базу данных" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="139" Click="RefreshButton_Click" Height="42" MinWidth="100" MinHeight="20" Grid.RowSpan="5" ForceCursor="True" Background="#FFD4FFDC" VerticalContentAlignment="Center" MaxWidth="200" MaxHeight="100">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF0C0303" BlurRadius="100"/>
+            </Button.Effect>
+        </Button>
+        <ProgressBar Name ="progressBar" HorizontalAlignment="Left" Height="10" Margin="784,550,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.9,0.7"/>
+        <Button x:Name ="SeekButton" Content="Просмотреть перечень всех угроз" HorizontalAlignment="Left" Margin="189,10,0,0" VerticalAlignment="Top" Width="216" Click="SeekButton_Click" Height="42" Opacity="0.7" Background="#FFF0ABEC"/>
+        <Button x:Name ="DetailsButton"  Content="Узнать подробнее о выделенном элементе" HorizontalAlignment="Left" Margin="442,10,0,0" VerticalAlignment="Top" Width="248" Click="DetailsButton_Click" Height="42" Opacity="0.7" Background="#FFF0ABEC"/>
+        <Button x:Name ="SaveButton" Content="Сохранить базу в файл" HorizontalAlignment="Left" Margin="735,10,0,0" VerticalAlignment="Top" Width="139" Click="SaveButton_Click" Height="42" MinWidth="100" MinHeight="20" ForceCursor="True" Background="#FFD4FFDC">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF0C0303" BlurRadius="100"/>
+            </Button.Effect>
+        </Button>
+        <TextBox Name ="DownloadStatusBox" HorizontalAlignment="Left" Height="23" Margin="784,522,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"/>
+        <DataGrid Name="ThreadTable" HorizontalAlignment="Left" Height="444" Margin="10,73,0,0" VerticalAlignment="Top" Width="864" AutoGenerateColumns="True"  CanUserSortColumns="False" IsReadOnly="True" ColumnWidth="*" Visibility="Collapsed"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="281,500,233,16">
+            <Button Height="23" HorizontalAlignment="Left"  Name="btnFirst" VerticalAlignment="Bottom" Width="40" Content="&lt;&lt;" Click="btnFirst_Click" Opacity="0.75"/>
+            <Button Height="23"  VerticalAlignment="Bottom" x:Name="btnPrev" Width="40" Click="btnPrev_Click" Opacity="0.75" Content="&lt;" Margin="0,9,0,0"/>
+            <Label x:Name="lblpageInformation" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="23" Width="97" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+            <Button Height="23" HorizontalAlignment="Right" Name="btnNext" VerticalAlignment="Bottom" Width="40" Content="&gt;" Click="btnNext_Click" Opacity="0.75"/>
+            <Button Height="23" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="40" Name="btnLast" Click="btnLast_Click" Opacity="0.75" Content="&gt;&gt;"/>
+            <ComboBox x:Name="cbNumberOfRecords" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="120"  SelectedIndex="0" SelectionChanged="cbNumberOfRecords_SelectionChanged" Opacity="0.75" Margin="0,10,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
